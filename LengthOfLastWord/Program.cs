@@ -11,9 +11,25 @@
         {
             public int LengthOfLastWord(string s)
             {
-                s = s.Trim();
-                var temp = s.Split(' ');
-                return temp[temp.Length - 1].Length;
+                bool valid = false;
+                int count = 0;
+                for (int i = s.Length - 1; i >= 0; i--)
+                {
+                    if (s[i] == ' ')
+                    {
+                        if (valid == true)
+                            break;
+                        else
+                            continue;
+                    }
+                    else
+                    {
+                        count++;
+                        valid = true;
+                    }
+                }
+
+                return count;
             }
         }
     }
